@@ -1,5 +1,5 @@
-type Persona ={
-  dni:number ,nombre:string,apellidos?:string,saldo?:number
+export type Persona ={
+  dni:number,nombre:string,apellidos?:string,saldo?:number
 }
 export const matriz_personas: Persona[]= [
   {dni:22 ,nombre:"Daniel",apellidos:"Valiente",saldo:3834.777},
