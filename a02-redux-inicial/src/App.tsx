@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import {ComponenteConBordeWithWindowInnerSize} from './hoc/ComponenteConBorde';
+import { Principal } from './components/Principal';
 
 function App() {
   return (
     <div className="App">
-      <ComponenteConBordeWithWindowInnerSize />
+      <Principal />
     </div>
   );
 }
