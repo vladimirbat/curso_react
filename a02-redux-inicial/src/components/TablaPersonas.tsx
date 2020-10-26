@@ -17,7 +17,7 @@ export class TablaPersonas extends Component<TablaPersonaProps,{}>{
             </thead>
             <tbody>
                 {personas.map((p)=>
-                    (<tr>
+                    (<tr key={p.dni}>
                         <td>{p.dni}</td>
                         <td>{p.nombre}</td>
                         <td>{p.apellidos}</td>
