@@ -1,20 +1,24 @@
 import React, {Component} from 'react';
 import '../estilos.css';
 import { TablaPersonas } from './TablaPersonas';
-import {matriz_personas, Persona } from '../js/matriz_personas';
-
+// import {Persona } from '../js/matriz_personas';
+import {store} from '../js/store-creator';
 // -------------- CONTENEDOR ----------------
 // -- Trabaja directamente con redux
-export class Principal extends Component<{},{personas:Persona[]}>{
-    constructor(props:{}){
-        super(props);
-        this.state = {personas: [...matriz_personas]};
+export class Principal extends Component<{},{}>{
+    // constructor(props:{}){
+    //     super(props);
+    // }
+
+    borrarPersona(dni:number) {
+        // borrar persona
     }
+
     render(){
-        const {personas} = this.state;
+        const {personas} = store.getState();
         return  (
             <div>
-                <TablaPersonas personas={personas}/>
+                <TablaPersonas personas={personas} borrarPersona={this.borrarPersona}/>
             </div>
         );
     }
