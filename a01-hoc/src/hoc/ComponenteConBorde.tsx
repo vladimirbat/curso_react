@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
+import { withWindowInnerSize } from './withWindowInnerSize';
 
 type WindowSizeProps = {
     innerWidth: number,
     innerHeight: number
 }
-type ConBordeState = {
-    width: number,
-    height: number
-}
 
-export class ComponenteConBorde extends Component<WindowSizeProps, ConBordeState > {
+
+export class ComponenteConBorde extends Component<WindowSizeProps, {}> {
     constructor(props: WindowSizeProps) {
         super(props);
         console.log(props)
@@ -26,6 +24,8 @@ export class ComponenteConBorde extends Component<WindowSizeProps, ConBordeState
             width: Math.floor(innerWidth/2),
             height: Math.floor(innerHeight/2)
         }
-        return <div style={estilo}></div>
+        return <div style={estilo}></div>;
     }
 }
+
+export const ComponenteConBordeWithWindowInnerSize = withWindowInnerSize(ComponenteConBorde)

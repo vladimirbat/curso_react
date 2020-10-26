@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import {ComponenteConBorde} from './hoc/ComponenteConBorde';
+import {ComponenteConBordeWithWindowInnerSize} from './hoc/ComponenteConBorde';
 
 function App() {
   return (
     <div className="App">
-      <ComponenteConBorde innerHeight={200} innerWidth={400}/>
+      <ComponenteConBordeWithWindowInnerSize />
     </div>
   );
 }
