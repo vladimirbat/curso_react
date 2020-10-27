@@ -41,6 +41,5 @@ function reductorPrincipal(estado:StateInterface=estadoInicial, accion:PersonasA
 }
 
 // Objeto que contiene todos los datos compartidos de la aplicación.
-const wd:any = window;
-export const store = createStore(reductorPrincipal, wd.__REDUX_DEVTOOLS_EXTENSION__ && wd.__REDUX_DEVTOOLS_EXTENSION__());
+export const store = createStore(reductorPrincipal);
 store.subscribe(()=> sessionStorage.setItem('ESTADO', JSON.stringify(store.getState())));
