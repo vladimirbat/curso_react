@@ -1,0 +1,184 @@
+/*** VARIABLES ***/
+
+$theme-colors-dark: (
+  "black": #e2e0df,
+  "blue":#7c1b1d,
+  "green": #5d12a9,
+  "yellow": #0223cd,
+  "white":#050505,
+  "beige":#0a0a23,
+  "pink": #003f34,
+  "silver": #292929,
+  "red": #ff8888,
+);
+
+$theme-colors-light: (
+  "black": #1d1f20,
+  "blue": #83e4e2,
+  "green": #a2ed56,
+  "yellow": #fddc32,
+  "white": #fafafa,
+  "beige": #f5f5dc,
+  "pink": #ffc0cb,
+  "silver": #d1d1d1,
+  "red": #ff0000,
+);
+
+$separator: 15px;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Raleway', sans-serif;
+}
+
+@mixin theme($theme-name,  $theme-colors) {
+  .#{$theme-name} {
+    ul {
+      list-style: none;
+      margin: 1.75rem 0;
+      padding-left: 1rem;
+      > li {
+        background-color: map-get($theme-colors, "white");;
+        border-radius: 0 0.5rem 0.5rem 0.5rem;
+        margin-top: 2rem;
+        min-height: 3rem;
+        padding: 1rem 1rem 1rem 3rem;
+        position: relative;
+        &::before {
+          background: linear-gradient(135deg, map-get($theme-colors, "blue") 0%,map-get($theme-colors, "green") 100%);
+          border-radius: 1rem 1rem 0 1rem;
+          content: '';
+          height: 3rem;
+          left: -1rem;
+          overflow: hidden;
+          position: absolute;
+          top: -1rem;
+          width: 3rem;
+        }
+        &.selected{
+          background-color: map-get($theme-colors, "pink") ;
+        }
+      }
+    }
+    
+    
+     input[type=text], select, textarea{
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      resize: vertical;
+      background-color: map-get($theme-colors, "white");
+      color: map-get($theme-colors, "black");
+    }
+    
+    label, span.dato {
+      padding: 12px;
+      display: block;
+      background-color: map-get($theme-colors, "green");
+      border-radius: 4px;
+    }
+    span.dato{
+      background-color: map-get($theme-colors, "blue");
+      font-weight: bold;
+      text-align: right;
+    }
+    
+    input[type=submit], button {
+      background-color: map-get($theme-colors, "green");
+      color: map-get($theme-colors, "black");
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+      width: 100%;
+    }
+    
+    .error{
+      padding: 12px;
+      display: block;
+      padding-left: $separator;
+      color:map-get($theme-colors, "red");;
+    }
+    
+    /* =============== GRID ===================== */
+    .container {
+      border-radius: 5px;
+      background-color: map-get($theme-colors, "silver");
+      color: map-get($theme-colors, "black");
+      padding: 20px;
+    }
+    
+    .col-3 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+    }
+    
+    .col-9 {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+    }
+    
+    .col-6 {
+      float: left;
+      width: 50%;
+      margin-top: 6px;
+    }
+    
+    .col-4 {
+      float: left;
+      width: calc(100%/3);
+      margin-top: 6px;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    @media screen and (max-width: 600px) {
+      .col-3, .col-4, .col-6, .col-12, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+    
+    .truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .effect-example {
+      background-color: map-get($theme-colors, "beige");;
+      padding: 25px;
+      border-radius: 8px;
+      width: 80%;
+      margin:25px auto;
+    }
+  }
+}
+
+@include theme("dark", $theme-colors-dark);
+@include theme("light", $theme-colors-light);
+
+
+
+
+
+
+
