@@ -1,4 +1,4 @@
-import React, {FC, useRef, MouseEvent, useState, Fragment, useEffect} from 'react';
+import React, {FC, useRef, MouseEvent, useState, Fragment, useEffect, useDebugValue} from 'react';
 
 export const ComponenteConUseEfect:FC<{}> = () =>{
     const [dias, setDias] = useState<string[]>([]);

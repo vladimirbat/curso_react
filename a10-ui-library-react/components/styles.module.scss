@@ -1,0 +1,27 @@
+/* add css module styles here (optional) */
+
+.test {
+  margin: 2em;
+  padding: 0.5em;
+  border: 2px solid #000;
+  font-size: 2em;
+  text-align: center;
+}
+
+
+$color-tone-0: #FFFFFF;
+$color-tone-1: #AABBC4;
+$color-tone-2: #95AFBC;
+$color-tone-3: #7398AA;
+$color-tone-4: #518198;
+$color-tone-5: #39708B;
+$color-tone-6: #000000;
+
+* {
+  background-color: $color-tone-3;
+  color: $color-tone-1;
+}
+div {
+  background-color: $color-tone-2;
+  color: $color-tone-5;
+}
