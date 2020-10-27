@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/st3d.esm.js"></script>
+    <script nomodule src="/build/st3d.js"></script>
+    <style>
+      .main{
+        width: 80%;
+        min-width: 600px;
+        margin: 10px auto;
+      }
+      .graph {
+        border-radius: 25px;
+        background-color: #3c4c66;
+        overflow: hidden;
+      }
+      .graph_title {
+        color: white;
+        background-color: #374256;
+        text-align: center;
+        padding: 25px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+      }
+      .graph_container {
+        padding: 25px;
+      }
+    </style>
+    <script>
+      window.addEventListener('resize', (event) =>{
+        document.querySelector('ocs-native-docked-boxes').getCanvasSize();
+      });
+    </script>
+  </head>
+  <body style="background-color: #2b313d;">
+    <div class="main">
+      <div class="graph">
+        <div class="graph_title">MIX DE MEDIOS POR MES</div>
+        <div class="graph_container">
+          <ocs-native-docked-boxes></ocs-native-docked-boxes>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
