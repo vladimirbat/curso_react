@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../estilos.css';
 import { Persona } from '../js/matriz_personas';
 import { createBorrarAction, PersonasAction, StateInterface } from '../js/store-creator';
@@ -24,7 +25,9 @@ export class TablaPersonas extends Component<TablaPersonaProps,{}>{
                         <td>{p.nombre}</td>
                         <td>{p.apellidos}</td>
                         <td>{p.saldo}</td>
-                        <td><button onClick={(ev)=>borrarPersona(p.dni)}>&times;</button></td>
+                        <td><button onClick={(ev)=>borrarPersona(p.dni)}>&times;</button>
+                            <Link to={`/detalle/${p.dni}`}>Detalle</Link>
+                        </td>
                     </tr>)
                 )}
             </tbody>

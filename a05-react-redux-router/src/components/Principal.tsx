@@ -5,6 +5,7 @@ import { TablaPersonasConectada } from './TablaPersonas';
 import { InsertarPersonaConectada } from './InsertarPersona';
 import { Link, Route } from 'react-router-dom';
 import { Home } from './Home';
+import DetalleConectado from './Detalle';
 // -------------- CONTENEDOR ----------------
 // -- Trabaja directamente con redux
 export class Principal extends Component<{},{}>{
@@ -20,20 +21,17 @@ export class Principal extends Component<{},{}>{
                         <Link to="/">Home</Link>
                         <Link to="/listado">Listado</Link>
                         <Link to="/insertar">Insertar</Link>
+                        <Link to="/detalle/22">Detalle 22</Link>
                     </div>
                 </nav>
                 <div>
                     <Route path="/" exact component={()=><Home color="yellow"/>} />
                     <Route path="/insertar" component={InsertarPersonaConectada} />
                     <Route path="/listado" component={TablaPersonasConectada} />
+                    <Route path="/detalle/:dni" component={DetalleConectado} />
                 </div>
             </Fragment>
 
         );
     }
-
-    // componentDidMount() {
-    //     store.subscribe(()=>this.forceUpdate());
-    // }
-
 }
