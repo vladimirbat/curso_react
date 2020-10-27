@@ -1,5 +1,7 @@
 import React, {ChangeEvent, Component} from 'react';
+import { connect } from 'react-redux';
 import { Persona } from '../js/matriz_personas';
+import { StateInterface, PersonasAction, createInsertarAction } from '../js/store-creator';
 
 // --------------- PRESENTACIÓN --------------
 interface InsertarProps {
@@ -47,3 +49,15 @@ export class InsertarPersona extends Component<InsertarProps,{persona:Persona}>{
     }
 
 }
+
+const mapeoEstadoAProps = (state:StateInterface) => {
+    return {};
+}
+const mapeoEventosADispather = (dispatch: (action: PersonasAction) => void) => {
+    return {
+        insertar: (p:Persona)=> dispatch(createInsertarAction(p)),
+    };
+}
+
+export const InsertarPersonaConectada = 
+    connect(mapeoEstadoAProps,mapeoEventosADispather)(InsertarPersona);

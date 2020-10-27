@@ -1,4 +1,4 @@
-import {createStore} from 'redux';
+import {Action, createStore} from 'redux';
 import { matriz_personas, Persona } from './matriz_personas';
 export interface StateInterface {
     personas: Persona[];
@@ -8,7 +8,7 @@ const estadoEnSession: string | null = sessionStorage.getItem('ESTADO')
 const estadoInicial: StateInterface = estadoEnSession ? JSON.parse(estadoEnSession) : {personas: matriz_personas};
 
 const BORRAR = 'BORRAR';
-interface BorrarAction {
+interface BorrarAction extends Action {
     type: typeof BORRAR;
     payload: number;
 }
@@ -17,7 +17,7 @@ export function createBorrarAction(dni:number):BorrarAction {
 }
 
 const INSERTAR = 'INSERTAR';
-interface InsertarAction {
+interface InsertarAction extends Action{
     type: typeof INSERTAR;
     payload: Persona;
 }
@@ -25,7 +25,7 @@ export function createInsertarAction(persona:Persona):InsertarAction {
     return {type:INSERTAR, payload: persona};
 }
 
-type PersonasAction = BorrarAction | InsertarAction;
+export type PersonasAction = BorrarAction | InsertarAction;
 
 function reductorPrincipal(estado:StateInterface=estadoInicial, accion:PersonasAction):StateInterface {
     if(accion.type===BORRAR){

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import '../estilos.css';
 import { Persona } from '../js/matriz_personas';
+import { createBorrarAction, PersonasAction, StateInterface } from '../js/store-creator';
 
 type TablaPersonaProps = {
     personas: Persona[],
@@ -30,3 +32,19 @@ export class TablaPersonas extends Component<TablaPersonaProps,{}>{
     }
 
 }
+
+
+
+const mapeoEstadoAProps = (state:StateInterface) => {
+    return {
+        personas: state.personas
+    };
+}
+const mapeoEventosADispather = (dispatch: (action: PersonasAction) => void) => {
+    return {
+        borrarPersona: (dni:number)=> dispatch(createBorrarAction(dni)),
+    };
+}
+
+export const TablaPersonasConectada = 
+    connect(mapeoEstadoAProps,mapeoEventosADispather)(TablaPersonas);
