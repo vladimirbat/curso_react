@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../estilos.css';
-import { Persona } from '../js/matriz_personas';
+import { Persona } from '../js/Persona';
 
 type TablaPersonaProps = {
     personas: Persona[],

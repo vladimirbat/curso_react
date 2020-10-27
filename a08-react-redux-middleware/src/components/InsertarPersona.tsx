@@ -1,5 +1,5 @@
 import React, {ChangeEvent, Component} from 'react';
-import { Persona } from '../js/matriz_personas';
+import { Persona } from '../js/Persona';
 
 // --------------- PRESENTACIÓN --------------
 interface InsertarProps {
